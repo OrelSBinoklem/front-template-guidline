@@ -1,0 +1,105 @@
+=bdrs ($NumberBdrs)
+  -webkit-border-radius: $NumberBdrs
+  -moz-border-radius: $NumberBdrs
+  -ms-border-radius: $NumberBdrs
+  border-radius: $NumberBdrs
+
+=bdrsFive
+  -webkit-border-radius: 5px
+  -moz-border-radius: 5px
+  -ms-border-radius: 5px
+  border-radius: 5px
+
+=TransRotate ($NumberRotate)
+  -moz-transform: rotate(#{$NumberRotate}deg)
+  -ms-transform: rotate(#{$NumberRotate}deg)
+  -webkit-transform: rotate(#{$NumberRotate}deg)
+  -o-transform: rotate(#{$NumberRotate}deg)
+  transform: rotate(#{$NumberRotate}deg)
+
+=TransitionBlock ($NumberTr)
+  -webkit-transition: all #{$NumberTr}s linear
+  -moz-transition: all #{$NumberTr}s linear
+  -ms-transition: all #{$NumberTr}s linear
+  -o-transition: all #{$NumberTr}s linear
+  transition: all #{$NumberTr}s linear
+
+=bgj ($NumberBgJ, $x, $y)
+  background: url(../img/#{$NumberBgJ}.jpg) $x $y no-repeat
+
+=bgp ($NumberBgP, $x, $y)
+  background: url(../img/#{$NumberBgP}.png) $x $y no-repeat
+
+=bgs ($NumberBgS, $x, $y)
+  background: url(../img/svg/#{$NumberBgS}.svg) $x $y no-repeat
+
+=TextBlockCenter ($hig)
+  display: table-cell
+  vertical-align: middle
+  text-align: center
+  height: $hig
+
+=TextBlockMiddle ($higt)
+  display: table-cell
+  vertical-align: middle
+  height: $higt
+
+=AllBeforeBlock ($bleft, $btop, $bheight, $bwidth)
+  content: ""
+  position: absolute
+  left: $bleft
+  top: $btop
+  height: $bheight
+  width: $bwidth
+
+=BoxShadow ($pr01, $pr02, $pr03, $colorv)
+  -webkit-box-shadow: $pr01 $pr02 $pr03 $colorv
+  -moz-box-shadow: $pr01 $pr02 $pr03 $colorv
+  box-shadow: $pr01 $pr02 $pr03 $colorv
+
+=BoxShadowInset ($pr01, $pr02, $pr03, $colorv)
+  -webkit-box-shadow: inset $pr01 $pr02 $pr03 $colorv
+  -moz-box-shadow: inset $pr01 $pr02 $pr03 $colorv
+  box-shadow: inset $pr01 $pr02 $pr03 $colorv
+
+=BasecLink ($acolor, $bcolor)
+  a
+    color: $acolor
+    text-decoration: underline
+    &:hover
+      color: $bcolor
+      text-decoration: underline
+
+@mixin breakpoint($breakpoint)
+  @if $breakpoint == "tablet"
+    @media (max-width: 1260px)
+      @content
+
+@mixin sprite($sprite)
+  $sprite-image: nth($sprite, 9)
+  background-image: url(#{$sprite-image})
+  background-position: nth($sprite, 3) nth($sprite, 4)
+  width: nth($sprite, 5)
+  height: nth($sprite, 6)
+
+@mixin retina-sprite($retina-group)
+  $normal-sprite: nth($retina-group, 2)
+  $retina-sprite: nth($retina-group, 3)
+  @include sprite($normal-sprite)
+
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)
+    $sprite-image: nth($retina-sprite, 9)
+    background-image: url(#{$sprite-image})
+    background-size: nth($normal-sprite, 7) nth($normal-sprite, 8)
+
+@mixin sprites($sprites)
+  @each $sprite in $sprites
+    $sprite-name: nth($sprite, 10)
+    .#{$sprite-name}
+      @include sprite($sprite)
+
+@mixin retina-sprites($retina-groups)
+  @each $retina-group in $retina-groups
+    $sprite-name: nth($retina-group, 1)
+    .#{$sprite-name}
+      @include retina-sprite($retina-group)

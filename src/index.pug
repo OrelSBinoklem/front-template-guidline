@@ -1,0 +1,337 @@
+extends layouts/layout
+block content
+  .content-scrollspy(data-spy='scroll', data-target='.content-scrollspy-nav', data-offset='0')
+    h2#section-description Описание
+    h5 Технологии используемые в данной сборки
+    ol
+      li Gulp
+      //li Webpack
+      li Bower
+      li BrowserSync
+      li AdaptivePixelPerfect
+        button.btn.btn-outline-info.btn-sm.popover-dismiss(type='button', data-toggle='popover', data-trigger='focus', title='Описание', data-content="Мой авторский плагин который умеет подкладывать на разных разрешениях соответствующие изображения дизайна, также он кросбраузерен и имеет встроенное меню для быстрой навигации по страницам вёрстки") ?
+    h2#section-easy-start Простой старт
+    ol
+      li Выполнить в консоле: "git clone https://github.com/OrelSBinoklem/front-template.git"
+        =' '
+        a(href="http://prntscr.com/gee7t8") вызываем консоль,
+        =' '
+        a(href="http://prntscr.com/gee92q") вставляем строку
+        =' '
+        | и нажимаем "Enter". Из появившейся папки переносим все файлы в корень
+      li Выполнить в консоле: "npm i && bower i" (требуется Node.js и Bower, установленные глобально).
+        =' '
+        a(href="https://www.youtube.com/watch?v=NIw4pJfYX60") как установить node,
+        =' '
+        a(href="https://www.youtube.com/watch?v=jl3-rYqnvqU") как установить bower,
+      li Все файлы .gitkeep можно удалять.
+        button.btn.btn-outline-info.btn-sm.popover-dismiss(type='button', data-toggle='popover', data-trigger='focus', title='Зачем они нужны?', data-content="Git несохраняет пустые папки, поэтому разработчики используют простой хак - просто кладут пустой файл .gitkeep") ?
+      li В
+        =' '
+        kbd config/packer.js
+        =' '
+        | как минимум определить обязательные настройки (в которых значения undefined).
+      li Для запуска gulp можно использовать файлы development.bat и production.bat (тестировал только в windows)
+      li Вёрстка доступна по адресу: <a href="http://localhost:3000">http://localhost:3000</a>
+        br
+        | AdaptivePixelPerfect доступен по адресу <a href="http://localhost:3010/?a-pp=1">http://localhost:3010/?a-pp=1</a>
+        br
+        | Адрес для смартфонов через WI-FI:
+        img.img-thumbnail.rounded.d-block.mt-3.mb-3(src='img/mobile-url.png', alt='')
+    h2#section-settings Настройки
+    #section-settings-accordion(role='tablist')
+      each section, i in configDescriptions
+        h5 !{section.heading}
+        .row.justify-content-end
+          .col-11
+            each option, j in section.options
+              .card.mb-1
+                .card-header(role='tab', id='section-settings-h-' + i +"-"+ j)
+                  .mb-0
+                    a(data-toggle='collapse', href='#section-settings-' + i + "-" + j, aria-expanded='false ', aria-controls='section-settings-' + i + "-" + j)= option.h
+                .collapse(id='section-settings-' + i + "-" + j, role='tabpanel', aria-labelledby='section-settings-h-' + i + "-" + j, data-parent='#section-settings-accordion')
+                  .card-body !{option.desc}
+    h2#section-rules-styles.mt-3 Правила написания стилей
+    ul
+      li <b>Селекторы</b>
+        ol
+          li
+            p Все элементы деляться на <b>блок-элемент</b> как и в БЭМ
+            img.img-thumbnail.rounded.d-block.mt-3.mb-3(src='img/styles-block-element.png', alt='')
+          li
+            p Модификаторы блока задаються в контексте блока следующим образом
+            img.img-thumbnail.rounded.d-block.mt-3.mb-3(src='img/styles-modificator-block.png', alt='')
+          li
+            p Классы состояния можно задавать простыми классами но не как в БЭМ, обязательно в контексте элемента или самого блока
+            img.img-thumbnail.rounded.d-block.mt-3.mb-3(src='img/styles-state-classes.png', alt='')
+          li
+            p Крайние контентные теги h1-h6, p, a, img и др. можно прописывать в формате вложенных селекторов, если один тег имеет несколько разновидностей можно использовать простые классы. Пример (классы "text" и "description" для тегов "p"):
+            img.img-thumbnail.rounded.d-block.mt-3.mb-3(src='img/styles-classes-content-tags.png', alt='')
+          li
+            p Не рекомендуеться использовать вложенно вложенные конструкции классов в sass, потому что код становиться тяжело воспринимаемым запутанным и при использовании классов состояний придёться писать полностью имя классов без использования спецсимвола "&":
+            img.img-thumbnail.rounded.d-block.mt-3.mb-3(src='img/styles-nested-construction-sass.png', alt='')
+            img.img-thumbnail.rounded.d-block.mt-3.mb-3(src='img/styles-2-level-construction-sass.png', alt='')
+      li <b>Свойства</b>
+        ul
+          li Вначале display, float, position
+          li На втором месте margin, padding, width, height, top, left, right, bottom
+          li Остальное на своё усмотрение
+      li <b>Медиазапросы</b>
+        p Обязательно пишем в каждом селекторе:
+        img.img-thumbnail.rounded.d-block.mt-3.mb-3(src='img/styles-media.png', alt='')
+    div.bs-callout.bs-callout-warning Стили пишутся без вендорных префиксов, их проставлением при сборке css занимается autoprefixer
+    h2#section-adaptive-pixel-perfect AdaptivePixelPerfect
+    p Для начала работы вы должны залить скриншоты дизайна в папку
+      =' '
+      kbd design
+      =' '
+      | перезапустить gulp если он запущен и перейти по адресу: <a href="http://localhost:3010/?a-pp=1">http://localhost:3010/?a-pp=1</a>
+    ul
+      li зажать левую кнопку мыши + 1 - 9, 0 (переключение между разрешениями)
+      li зажать левую кнопку мыши + W, A, S, D (навигация по вёрстке если её разрешение выше экрана браузера)
+      li зажать левую кнопку мыши + Z, X, C (вёрстка, вёрстка поверх дизайна, картинка дизайна)
+      li Ctrl + R + двигаем мышь (ручное изменение размеров окна с вёрсткой)
+    p Кратко о панели:
+    img.img-thumbnail.rounded.d-block.mt-3.mb-3(src='img/adaptive-pixel-perfect-panel.png', alt='')
+    ul
+      li Слева
+        ol
+          li Текущее эмулируемое разрешение
+          li Ваши добавленние варианты разрешений
+          li Здвинуть панель вниз
+      li Справа
+        ol
+          li Страницы
+          li Разрешения и картинки дизайна
+          li Управление наложением вёрстки на дизайн
+            ol
+              li Вёрстка
+              li Вёрстка поверх дизайна
+              li Картинка дизайна
+          li Настройки
+    h2#section-bower.mt-3 bower
+    a(href="https://www.youtube.com/watch?v=jl3-rYqnvqU") Уроки по основам бовера
+    h5#section-bower-install-plugin.mt-3 Установка плагина
+    p Допустим мы решили установить CSS фреймворк "foundation":
+    ul
+      li Загрузка плагина
+        ol
+          li Устанавливаем bower, если он не установлен выполнив в консоле команду:"npm i -g bower"
+          li Заходим на сайт бовера
+            =' '
+            a(href="https://bower.io/") https://bower.io/
+            =' '
+            | переходим на страницу поиска
+            img.img-thumbnail.rounded.d-block.mt-3.mb-3(src='img/bower-go-search-page.png', alt='')
+          li Пишем в поиск "foundation" и смотрим:
+            img.img-thumbnail.rounded.d-block.mt-3.mb-3(src='img/bower-search-foundation.png', alt='')
+            | обращаем внимание на количество лайков - иногда название того что нам надо может отличаться...
+          li Определяемся с выбором и нет не выбираем, а копируем название
+          li Открываем консоль и пишем: "bower i -D имя_плагина", в данном случае имя_плагина это "foundation-sites" нажимаем Enter
+      li Перенос нужных файлов в конечную вёрстку и объединение плагинов
+        ol
+          li Запускаем gulp чтобы он перекачал необходимые нам файлы из дистрибутива который лежит в
+            =' '
+            kbd bower_components
+            =' '
+            | в папку для плагинов в конечной вёрстке
+            =' '
+            kbd build/vendor
+            =' '
+            | названия папок можно менять через опции "dest" и "bowerDest"
+            div.bs-callout.bs-callout-info Все эти извороты для того чтобы тупые заказчики неудивлялись тому что в вёрстке которую они получили в папке с плагинами лежит несколько тысяч файлов... Вообщето по профессиональному иммено так и должно быть мы должны сохранять в вёрстке весь дистрибутив хоть там и тысячи файлов они никак невлияют на загрузку страниц, немного весят и могут нам в будущем понадобиться
+          li Изучаем папку с перекачанными файлами:
+            img.img-thumbnail.rounded.d-block.mt-3.mb-3(src='img/bower-foundation-bad-files.png', alt='')
+            p
+              | видим какойто scss да и файл скрипта несжатый. Именно так в основном и происходит потому что такие правила оформления bower плагинов.
+              | Для решения данной проблемы существует файл настроек
+              =' '
+              kbd config/bower-overrides.js
+              =' '
+              | Лезим в папку
+              =' '
+              kbd bower_components/foundation-sites
+              =' '
+              | ищем главный css файл и сжатый js также можно поизучать файл bower.json бо может для плагина нужны ещё какие нибудь дополнительные файлы, например для локализации также поскольку мы переносим файлы незабываем перенести шрифты и картинки так как пути к ним в стилях становяться неактуальными.
+            p Прописываем нужные пути в настройки:
+            img.img-thumbnail.rounded.d-block.mt-3.mb-3(src='img/bower-overides.png', alt='')
+          li
+            p Если нужно обьединить несколько плагинов в один css и js файл можете использовать файл настроек
+              =' '
+              kbd config/bower-concat.js
+              =' '
+            img.img-thumbnail.rounded.d-block.mt-3.mb-3(src='img/bower-concat.png', alt='')
+            p Имя свойства "plugins", это имя обьединнённого плагина, его будете использовать при подключении плагинов на странице, а также оно используеться в имени общего генерируемого css и js файла, в нашем случае это будут "plugins.css" и "plugins.js".
+            p Объединённые файлы помещаються в корень папки
+              =' '
+              kbd build/vendor
+              =' '
+              | и наш зборщик проекта попытаеться поправить пути в стиляк к файлам картинок и шрифтов (алгоритм пока ещё нормально нетестировался).
+            p Внутрь свойства в ставляете массив и в нём в виде строк перечисляете названия плагинов которые нужно объединить
+            p Незнабываем что плагины могут друг от друга зависеть поэтому думайте что с чем объединять и как потом это выводить. Я рекомендую если вам сильно неважна оптимизация когда мы подключаем только нужные плагины на каждой странице, просто взять и объединить все фреймворки, библиотеки и другие плагины от которых зависят большинство плагинов в один с названием lib, а всё остальное в plugins.
+      li Подключение плагина
+        ol
+          li На каких страницах и какие плагины выводить определяем в файлах
+          =' '
+          kbd src/pug/includes/styles.pug
+          =' '
+          | и
+          =' '
+          kbd src/pug/includes/scripts.pug
+          =' '
+          | Для вывода стилей используеться миксин <b>pasteStyles</b> а для скриптов <b>pasteScripts</b>
+          div.bs-callout.bs-callout-info Миксины можно использовать несколько раз в разных местах. При этом незабывайте о зависимостях плагинов!
+          | В миксин передаёться массив, внутри массива ещё массивы они идут парами нечётные определяют на каких страницах подключать плагины а чётные какие плагины. В массивы можно передавать любое количество значений, в массив который определяет на каких страницах подключать плагины может принимать не только строки с названиями страниц но и регулярные выражения. Пример:
+          img.img-thumbnail.rounded.d-block.mt-3.mb-3(src='img/bower-paste-styles.png', alt='')
+          p В данном примере мы подключаем на всех страницах "reset-css", на страницах названия которых начинаються с "case-" и "auth-" плагины "malihu-custom-scrollbar-plugin" и "fancybox", а на странице "registration" плагин "jquery-validation"
+    h2#section-compress-img.mt-3 Сжатие картинок и спрайты
+    h5#section-compress-img-compress.mt-3 Сжатие
+    p Доступно 5 степеней сжатия картинок:
+    ol
+      li "perfect" - идеальное
+        button.btn.btn-outline-info.btn-sm.popover-dismiss(type='button', data-toggle='popover', data-trigger='focus', title='Описание', data-content="100% по фотошопу. Нужен для особых ценителей качества или для какихто пока неведомых целей. \"perfect\" весит в 2-3 раза больше чем \"good\", на глаз разница незаметна") ?
+      li "good" - хорошее
+        button.btn.btn-outline-info.btn-sm.popover-dismiss(type='button', data-toggle='popover', data-trigger='focus', title='Описание', data-content="80% по фотошопу. Нормальное качество с упором на качество. Весит в раза 2 больше чем \"simple\"") ?
+      li "normal" - нормальное
+        button.btn.btn-outline-info.btn-sm.popover-dismiss(type='button', data-toggle='popover', data-trigger='focus', title='Описание', data-content="60% по фотошопу. Нормальное качество с упором на меньший обьём. Весит в раза 2 меньше чем \"good\"") ?
+      li "simple" - простое
+        button.btn.btn-outline-info.btn-sm.popover-dismiss(type='button', data-toggle='popover', data-trigger='focus', title='Описание', data-content="40% по фотошопу. Нормальное качество с упором на меньший обьём. Весит в раза 2 меньше чем \"good\"") ?
+      li "low" - пониженное
+        button.btn.btn-outline-info.btn-sm.popover-dismiss(type='button', data-toggle='popover', data-trigger='focus', title='Описание', data-content="20% по фотошопу - Годиться когда качество сильно неважно и заказчик слишком настойчиво требует увеличить скорость загрузки сайта или для крупных под ретину картинок (но это уже будет немного халтура по отношению к пользователям с 4к мониторами - но оно всеравно будет лучше чем например FullHD с качеством \"simple\"). Весит в раза 2 меньше чем \"simple\"") ?
+    button.btn.btn-lg.btn-outline-info.mb-3(type='button', data-toggle='modal', data-target='#modal-img-quality')
+      i.fa.fa-eye
+        =' '
+        | Сравнить
+    p Рекомендуеться применять только "good" | "normal" | "simple" бо остальное несовсем здраво!
+    div.bs-callout.bs-callout-warning "perfect" являеться идеальным только для png формата, jpeg и webp жмуться всегда с потерями... В настройках webp можно включить режим без потерь как в png но я решил этого неделать бо для веба качество ненастолько критично - разницы между без потерь и 100% с потерями незаметит даже ювелир
+    div.bs-callout.bs-callout-info Картинки жмуться с особыми настройками чтоб при загрузке в браузерах в начале показывался вариант с ухудшенным качеством и постепенно по мере загрузки картинки это качество улучшалось. Подробнее в
+      =' '
+      a(href="https://en.wikipedia.org/wiki/Interlacing_(bitmaps)") этой статье
+      | . Такие настройки незначительно увеличивают размер изображений (примерно на 5%) но они того стоят...
+    //div.bs-callout.bs-callout-info Используемый плагин меньше урезает элементов при том же размере чем фотошоп т.е. более качественно жмёт, а так же не портит цвета как tinypng
+    p По умолчанию качество сжатия определяет параметр "<b>imgCompressPolicy</b>". Без определения данного параметра сборка незапуститься вы должны обсудить с заказчиком что для него важнее качество или меньший обьём и установить значение "<b>good</b>" или "<b>simple</b>" соответственно
+    div.bs-callout.bs-callout-info Если вы во время вёрстки хотите поднять или опустить качество для некоторых изображений то поместите эти изображения в <b>папку с названием нужного качества</b> например: "good" или "simple".
+    div.bs-callout.bs-callout-warning В стилях ничего переписывать ненужно картинки переносяться из папки с именем качества в родительскую папку на уровень вверх
+    h5#section-compress-img-folders.mb-3 Папки
+    .card(style='width: 20rem;')
+      .card-body
+        pre
+          code.
+            src
+            +---img
+            |   +---good
+            |   +---simple
+            |   +---icons
+            |   +---low
+            |   \---pics
+            |
+            +---pug
+            |   \---mixins
+            |           svg-icon.pug
+            |
+            \---sass
+                |   main.sass
+                |
+                \---mixins
+                        sprite.sass
+
+            tmp
+            \---sass
+                    _png-sprite.sass
+                    _svg-sprite.sass
+    h5#section-compress-img-type.mt-3 Типы картинок
+    dl.row
+      dt.col-sm-4 Картинки оформления
+      dd.col-sm-8 Картинки которые отвечают за оформление (в основном их прописывают через стили). Должны лежать в корне папки <kbd>img</kbd> и других папках кроме зарезервированых. Их качество определяет параметр "imgCompressPolicy".
+      dt.col-sm-4 Контентные картинки
+      dd.col-sm-8 Картинки которые являються частью контента (в основном их прописывают через тег img в html). Должны лежать в папке <kbd>img/pics</kbd>. Их качество определяет параметр "imgCompressPics". По умолчанию жмуться с качеством "simple" так как неочень важны и могуть быть заменены заказчиком
+      dt.col-sm-4 Картинки для спрайта
+      dd.col-sm-8 Мелкие картинки для оформления (всякие загугуленки вокруг блоков например) и иконки. Должны лежать в папке <kbd>img/icons</kbd>. Всегда жмуться с качеством "good" так как дефекты на значках заметны а жать в "perfect" нездраво!!!
+    h5#section-compress-img-sprite Спрайты
+    p <kbd>tmp/sass/_png-sprite.sass</kbd> и <kbd>tmp/sass/_svg-sprite.sass</kbd> в этих файлах храняться все данные о спрайтах: адрес картинки спрайта, размеры и координаты картинок из которых зделан спрайт (можете сами поизучать данные файлы)
+    p <kbd>src/sass/mixins/sprite.sass</kbd> тут находяться миксины для вывода данных о спрайте
+      ul
+        li <b>@mixin sprite($sprite)</b> - выводит свойства одной png иконки
+        li <b>@mixin retina-sprite($retina-group)</b> - тоже самое только для ретины или 4к
+        li <b>@mixin sprites($sprites)</b> - выводит стили для всех png иконок.
+        li <b>@mixin retina-sprites($retina-groups)</b> - тоже самое только для ретины или 4к
+        li <b>@mixin svg-sprite($sprite)</b> - выводит свойства одной svg иконки
+        li <b>@mixin svg-sprites($sprites)</b> - выводит стили для всех svg иконок.
+    p <b>PNG иконки</b> вставляються через любой тег и класс с именем иконки или через миксин который выводит свойства иконки - надо просто вставить в стиль миксин и передать в него переменную с именем иконки.
+    p Чтобы иконки были под ретину необходимо указать параметр "<b>spritePngPostfix2x</b>", например "@2x" и ложить в папку с обычными иконками такие точно иконки но с удвоенным разрешение и именем:"имя_обычной_иконки@2x.png"
+    p <b>SVG иконки</b> вставляються через миксин <b>mixin icon(name)</b> который находиться в <kbd>src/pug/mixins/svg-icon.pug</kbd> ему передаеться имя иконки.
+    p SVG иконки могут маштабироваться через свойство font-size в стилях а также если изменять базовый размер шрифта в html, поскольку в свойствах иконки используються rem и em
+    p SVG иконкам можно задавать цвет через обычное свойство color в стилях, но перед этим надо их обесцветить, для этого надо задать параметр "<b>spriteSvgClearColor</b>" в true
+    div.bs-callout.bs-callout-info Имя иконки формируеться так:"<b>icon-имя_файла_иконки</b>"
+    div.bs-callout.bs-callout-warning Миксины под ретину или 4к содержат информацию и о стандартных картинках поэтому ненадо использовать медиазапросы с разными миксинами
+    h2#section-fast-links Всякие интересные ссылки
+    ul
+      li: a(href="http://html2jade.org/") html код в pug
+      li: a(href="https://svgextension.codeplex.com/releases/view/118790") Отображение SVG иконок Windows Explorer
+      li: a(href="https://oxozle.com/2015/03/24/kak-sozdat-fajl-s-tochkoj-v-nachale-v-windows-explorer") Как создать файл с точкой в начале в Windows Explorer
+  #modal-img-quality.modal.fade.bd-example-modal-lg(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+    .modal-dialog.modal-lg(role='document')
+      .modal-content
+        .modal-header
+          h5#exampleModalLabel.modal-title Сравнение
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') ×
+        .modal-body
+          .row.mb-3.quality-compare
+            .col-6.quality-compare-left
+              mixin quality-compare(id, heading)
+                if id == "compare-right"
+                  - var right = "d-flex flex-row-reverse"
+                .dropdown(class=right)
+                  button.btn.btn-secondary.dropdown-toggle(id=id, type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')=heading
+                  .dropdown-menu(aria-labelledby=id)
+                    h6.dropdown-header JPG
+                    .group-quality(data-heading="JPG")
+                      a.dropdown-item(href='img/quality-perfect.jpg') perfect - 303KB
+                      a.dropdown-item(href='img/quality-good.jpg') good - 154KB
+                      a.dropdown-item(href='img/quality-normal.jpg') normal - 116KB
+                      a.dropdown-item(href='img/quality-simple.jpg') simple - 67KB
+                      a.dropdown-item(href='img/quality-low.jpg') low - 50KB
+                    .dropdown-divider
+                    h6.dropdown-header PNG
+                    .group-quality(data-heading="PNG")
+                      a.dropdown-item(href='img/quality-perfect-png.png') perfect - 620KB
+                      a.dropdown-item(href='img/quality-good-png.png') good - 620KB
+                      a.dropdown-item(href='img/quality-normal-png.png') normal - 620KB
+                      a.dropdown-item(href='img/quality-simple-png.png') simple - 620KB
+                      a.dropdown-item(href='img/quality-low-png.png') low - 160KB
+                    .dropdown-divider
+                    h6.dropdown-header WEBP
+                    .group-quality(data-heading="WEBP")
+                      a.dropdown-item(href='img/webp/quality-perfect-webp.png') perfect - 195KB
+                      a.dropdown-item(href='img/webp/quality-good-webp.png') good - 138KB
+                      a.dropdown-item(href='img/webp/quality-normal-webp.png') normal - 101KB
+                      a.dropdown-item(href='img/webp/quality-simple-webp.png') simple - 56KB
+                      a.dropdown-item(href='img/webp/quality-low-webp.png') low - 47KB
+                    .dropdown-divider
+                    h6.dropdown-header Photoshop JPG
+                    .group-quality(data-heading="Photoshop JPG")
+                      a.dropdown-item(href='img/photoshop/quality-100.jpg') 100% - 404KB
+                      a.dropdown-item(href='img/photoshop/quality-80.jpg') 80% - 211KB
+                      a.dropdown-item(href='img/photoshop/quality-60.jpg') 60% - 129KB
+                      a.dropdown-item(href='img/photoshop/quality-40.jpg') 40% - 74KB
+                      a.dropdown-item(href='img/photoshop/quality-20.jpg') 20% - 53KB
+                    .dropdown-divider
+                    h6.dropdown-header TinyPng
+                    .group-quality(data-heading="TinyPng")
+                      a.dropdown-item(href='img/quality-tiny-png.png') PNG - 151KB
+              +quality-compare("compare-left", "Левая картинка")
+            .col-6.quality-compare-right
+              +quality-compare("compare-right", "Правая картинка")
+          .row.mb-3
+            .col-6
+              h6.left-img-compare-text JPG - perfect - 303KB
+            .col-6
+              h6.right-img-compare-text.text-right JPG - low - 50KB
+          figure.cd-image-container
+            img.quality-compare-img-right(src='img/quality-low.jpg', alt='Original Image')
+            span.cd-image-label(data-type='original') Оригинальное
+            .cd-resize-img
+              img.quality-compare-img-left(src='img/quality-perfect.jpg', alt='Modified Image')
+              span.cd-image-label(data-type='modified') Модифицированное
+            span.cd-handle

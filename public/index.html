@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link href="img/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link rel="stylesheet" media="all" href="css/bootstrap.min.css">
+    <link rel="stylesheet" media="all" href="css/font-awesome.min.css">
+    <link rel="stylesheet" media="all" href="js/jquery-ui-1.12.1/jquery-ui.min.css">
+    <link rel="stylesheet" media="all" href="styles/styles.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container-fluid content-scrollspy-nav">
+        <div class="row">
+          <div class="col-12 col-md-4 col-xl-3">
+                        <nav class="nav nav-pills flex-column"><a class="nav-link" href="#section-description">Описание</a><a class="nav-link" href="#section-easy-start">Простой старт</a><a class="nav-link" href="#section-settings">Настройки</a><a class="nav-link" href="#section-file-structure">Структура файлов</a><a class="nav-link" href="#section-rules-styles">Правила написания стилей</a><a class="nav-link" href="#section-adaptive-pixel-perfect">AdaptivePixelPerfect</a><a class="nav-link" href="#section-bower">bower</a>
+                          <nav class="nav nav-pills flex-column"><a class="nav-link ml-3 my-1" href="#section-bower-install-plugin">Установка плагина</a>
+                          </nav><a class="nav-link" href="#section-compress-img">Сжатие картинок и спрайты</a>
+                          <nav class="nav nav-pills flex-column"><a class="nav-link ml-3 my-1" href="#section-compress-img-compress">Сжатие</a><a class="nav-link ml-3 my-1" href="#section-compress-img-folders">Папки</a><a class="nav-link ml-3 my-1" href="#section-compress-img-type">Типы картинок</a><a class="nav-link ml-3 my-1" href="#section-compress-img-sprite">Спрайты</a>
+                          </nav><a class="nav-link" href="#section-fast-links">Всякие интересные ссылки</a>
+                        </nav>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid content">
+        <div class="row">
+          <div class="col-12 col-md-4 col-xl-3 h-0"></div>
+          <div class="col-12 col-md-8 col-xl-6">
+            <div class="content-scrollspy" data-spy="scroll" data-target=".content-scrollspy-nav" data-offset="0">
+              <h2 id="section-description">Описание</h2>
+              <h5>Технологии используемые в данной сборки</h5>
+              <ol>
+                <li>Gulp</li>
+                <!--li Webpack-->
+                <li>Bower</li>
+                <li>BrowserSync</li>
+                <li>AdaptivePixelPerfect
+                  <button class="btn btn-outline-info btn-sm popover-dismiss" type="button" data-toggle="popover" data-trigger="focus" title="Описание" data-content="Мой авторский плагин который умеет подкладывать на разных разрешениях соответствующие изображения дизайна, также он кросбраузерен и имеет встроенное меню для быстрой навигации по страницам вёрстки">?</button>
+                </li>
+              </ol>
+              <h2 id="section-easy-start">Простой старт</h2>
+              <ol>
+                <li>Выполнить в консоле: "git clone https://github.com/OrelSBinoklem/front-template.git" <a href="http://prntscr.com/gee7t8">вызываем консоль,</a> <a href="http://prntscr.com/gee92q">вставляем строку</a> и нажимаем "Enter". Из появившейся папки переносим все файлы в корень
+                </li>
+                <li>Выполнить в консоле: "npm i && bower i" (требуется Node.js и Bower, установленные глобально). <a href="https://www.youtube.com/watch?v=NIw4pJfYX60">как установить node,</a> <a href="https://www.youtube.com/watch?v=jl3-rYqnvqU">как установить bower,</a>
+                </li>
+                <li>Все файлы .gitkeep можно удалять.
+                  <button class="btn btn-outline-info btn-sm popover-dismiss" type="button" data-toggle="popover" data-trigger="focus" title="Зачем они нужны?" data-content="Git несохраняет пустые папки, поэтому разработчики используют простой хак - просто кладут пустой файл .gitkeep">?</button>
+                </li>
+                <li>В <kbd>config/packer.js</kbd> как минимум определить обязательные настройки (в которых значения undefined).
+                </li>
+                <li>Для запуска gulp можно использовать файлы development.bat и production.bat (тестировал только в windows)</li>
+                <li>Вёрстка доступна по адресу: <a href="http://localhost:3000">http://localhost:3000</a><br>AdaptivePixelPerfect доступен по адресу <a href="http://localhost:3010/?a-pp=1">http://localhost:3010/?a-pp=1</a><br>Адрес для смартфонов через WI-FI:<img class="img-thumbnail rounded d-block mt-3 mb-3" src="img/mobile-url.png" alt=""></li>
+              </ol>
+              <h2 id="section-settings">Настройки</h2>
+              <div id="section-settings-accordion" role="tablist">
+                <h5>packer</h5>
+                <div class="row justify-content-end">
+                  <div class="col-11">
+                    <div class="card mb-1">
+                      <div class="card-header" role="tab" id="section-settings-h-0-0">
+                        <div class="mb-0"><a data-toggle="collapse" href="#section-settings-0-0" aria-expanded="false " aria-controls="section-settings-0-0">dest</a></div>
+                      </div>
+                      <div class="collapse" id="section-settings-0-0" role="tabpanel" aria-labelledby="section-settings-h-0-0" data-parent="#section-settings-accordion">
+                        <div class="card-body">Путь к папке с конечным результатом</div>
+                      </div>
+                    </div>
+                    <div class="card mb-1">
+                      <div class="card-header" role="tab" id="section-settings-h-0-1">
+                        <div class="mb-0"><a data-toggle="collapse" href="#section-settings-0-1" aria-expanded="false " aria-controls="section-settings-0-1">resetCss</a></div>
+                      </div>
+                      <div class="collapse" id="section-settings-0-1" role="tabpanel" aria-labelledby="section-settings-h-0-1" data-parent="#section-settings-accordion">
+                        <div class="card-body">Просто сброс стилей "reset.css"</div>
+                      </div>
+                    </div>
+                    <div class="card mb-1">
+                      <div class="card-header" role="tab" id="section-settings-h-0-2">
+                        <div class="mb-0"><a data-toggle="collapse" href="#section-settings-0-2" aria-expanded="false " aria-controls="section-settings-0-2">imgCompressPolicy</a></div>
+                      </div>
+                      <div class="collapse" id="section-settings-0-2" role="tabpanel" aria-labelledby="section-settings-h-0-2" data-parent="#section-settings-accordion">
+                        <div class="card-body">Степень сжатия картинок по умолчанию подробнее в разделе <a href="#section-compress-img">"Сжатие картинок и спрайты"</a></div>
+                      </div>
+                    </div>
+                    <div class="card mb-1">
+                      <div class="card-header" role="tab" id="section-settings-h-0-3">
+                        <div class="mb-0"><a data-toggle="collapse" href="#section-settings-0-3" aria-expanded="false " aria-controls="section-settings-0-3">webp</a></div>
+                      </div>
+                      <div class="collapse" id="section-settings-0-3" role="tabpanel" aria-labelledby="section-settings-h-0-3" data-parent="#section-settings-accordion">
+                        <div class="card-body">Все картинки дополнительно жмуться в формат webp и вставляються в ту же папку с такими же именами. Надо в .htaccess файл вставить код с этой <a href="https://github.com/vincentorback/WebP-images-with-htaccess">статьи</a> для потдержки webp</div>
+                      </div>
+                    </div>
+                    <div class="card mb-1">
+                      <div class="card-header" role="tab" id="section-settings-h-0-4">
+                        <div class="mb-0"><a data-toggle="collapse" href="#section-settings-0-4" aria-expanded="false " aria-controls="section-settings-0-4">spritePngPostfix2x</a></div>
+                      </div>
+                      <div class="collapse" id="section-settings-0-4" role="tabpanel" aria-labelledby="section-settings-h-0-4" data-parent="#section-settings-accordion">
+                        <div class="card-body">Конец имени файлов с двойным разрешением для создания спрайта для ретины или 4k. "-2x" с такой строкой возникают баги!!! лучше использовать "@2x"</div>
+                      </div>
+                    </div>
+                    <div class="card mb-1">
+                      <div class="card-header" role="tab" id="section-settings-h-0-5">
+                        <div class="mb-0"><a data-toggle="collapse" href="#section-settings-0-5" aria-expanded="false " aria-controls="section-settings-0-5">spriteSvgClearColor</a></div>
+                      </div>
+                      <div class="collapse" id="section-settings-0-5" role="tabpanel" aria-labelledby="section-settings-h-0-5" data-parent="#section-settings-accordion">
+                        <div class="card-body">Удаление атрибутов цвета чтобы можно было цвет svg иконки задавать через свойство color в стилях</div>
+                      </div>
+                    </div>
+                    <div class="card mb-1">
+                      <div class="card-header" role="tab" id="section-settings-h-0-6">
+                        <div class="mb-0"><a data-toggle="collapse" href="#section-settings-0-6" aria-expanded="false " aria-controls="section-settings-0-6">pugOrganizationCodePolicy</a></div>
+                      </div>
+                      <div class="collapse" id="section-settings-0-6" role="tabpanel" aria-labelledby="section-settings-h-0-6" data-parent="#section-settings-accordion">
+                        <div class="card-body">Изначальная структура pug файлов. Раньше PHP программисты всегда использовали include с помощью которой подключали часто используемые куски кода. например "header" и "footer" потом заметили что header и footer всегда подключаються в одних и тег же местах на страницах и начали использовать extend (наследование). extend - работает следующим образом мы создаём файл, описываем внутри него "header" и "footer" между ними вставляем специальный переопределяемый блок и от этого файла наследуем все страницы и внутри страниц описываем только меняющийся контент которым переопределяем переопределяемый блок наследуемого файла. Если для заказчика неимеет значение в каком стиле вам писать то пишите в стиле "extend". Если для заказчика стиль может быть важен и вы незнаете какой то лучше "include" поскольку его проще переделать в "extend". Wordpress использует стиль "include". Laravel и Yii2 "extend"</div>
+                      </div>
+                    </div>
+                    <div class="card mb-1">
+                      <div class="card-header" role="tab" id="section-settings-h-0-7">
+                        <div class="mb-0"><a data-toggle="collapse" href="#section-settings-0-7" aria-expanded="false " aria-controls="section-settings-0-7">autoprefixer</a></div>
+                      </div>
+                      <div class="collapse" id="section-settings-0-7" role="tabpanel" aria-labelledby="section-settings-h-0-7" data-parent="#section-settings-accordion">
+                        <div class="card-body">Вендорные префиксы, чтобы больше браузеров использовали современные фишки пускай даже иногда с небольшими багами. Например -webkit-transition:</div>
+                      </div>
+                    </div>
+                    <div class="card mb-1">
+                      <div class="card-header" role="tab" id="section-settings-h-0-8">
+                        <div class="mb-0"><a data-toggle="collapse" href="#section-settings-0-8" aria-expanded="false " aria-controls="section-settings-0-8">autoprefixerOptions</a></div>
+                      </div>
+                      <div class="collapse" id="section-settings-0-8" role="tabpanel" aria-labelledby="section-settings-h-0-8" data-parent="#section-settings-accordion">
+                        <div class="card-body"><a href="https://github.com/ai/browserslist">документация</a></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <h5>packer <small class="text-muted">второстепенные опции</small></h5>
+                <div class="row justify-content-end">
+                  <div class="col-11">
+                    <div class="card mb-1">
+                      <div class="card-header" role="tab" id="section-settings-h-1-0">
+                        <div class="mb-0"><a data-toggle="collapse" href="#section-settings-1-0" aria-expanded="false " aria-controls="section-settings-1-0">src</a></div>
+                      </div>
+                      <div class="collapse" id="section-settings-1-0" role="tabpanel" aria-labelledby="section-settings-h-1-0" data-parent="#section-settings-accordion">
+                        <div class="card-body">Путь к папке с исходниками</div>
+                      </div>
+                    </div>
+                    <div class="card mb-1">
+                      <div class="card-header" role="tab" id="section-settings-h-1-1">
+                        <div class="mb-0"><a data-toggle="collapse" href="#section-settings-1-1" aria-expanded="false " aria-controls="section-settings-1-1">tmp</a></div>
+                      </div>
+                      <div class="collapse" id="section-settings-1-1" role="tabpanel" aria-labelledby="section-settings-h-1-1" data-parent="#section-settings-accordion">
+                        <div class="card-body">Путь к папке с временными файлами</div>
+                      </div>
+                    </div>
+                    <div class="card mb-1">
+                      <div class="card-header" role="tab" id="section-settings-h-1-2">
+                        <div class="mb-0"><a data-toggle="collapse" href="#section-settings-1-2" aria-expanded="false " aria-controls="section-settings-1-2">bowerDest</a></div>
+                      </div>
+                      <div class="collapse" id="section-settings-1-2" role="tabpanel" aria-labelledby="section-settings-h-1-2" data-parent="#section-settings-accordion">
+                        <div class="card-body">Путь к папке с плагинами из bower, относительно папки "dest"</div>
+                      </div>
+                    </div>
+                    <div class="card mb-1">
+                      <div class="card-header" role="tab" id="section-settings-h-1-3">
+                        <div class="mb-0"><a data-toggle="collapse" href="#section-settings-1-3" aria-expanded="false " aria-controls="section-settings-1-3">clean</a></div>
+                      </div>
+                      <div class="collapse" id="section-settings-1-3" role="tabpanel" aria-labelledby="section-settings-h-1-3" data-parent="#section-settings-accordion">
+                        <div class="card-body">Уничтожает папки "tmp", "dest" перед запуском основных задач</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <h5>bower-overrides</h5>
+                <div class="row justify-content-end">
+                  <div class="col-11">
+                    <div class="card mb-1">
+                      <div class="card-header" role="tab" id="section-settings-h-2-0">
+                        <div class="mb-0"><a data-toggle="collapse" href="#section-settings-2-0" aria-expanded="false " aria-controls="section-settings-2-0">Объект</a></div>
+                      </div>
+                      <div class="collapse" id="section-settings-2-0" role="tabpanel" aria-labelledby="section-settings-h-2-0" data-parent="#section-settings-accordion">
+                        <div class="card-body">Здесь мы определяем какие файлы из модулей нам нужны если предложенные по умолчанию нас неустраивают. Создаём свойство имеющее имя модуля потом в это свойство передаём объект с свойством main которому передаём строку с путём к файлу или массив строк к файлам: <img class="img-thumbnail rounded d-block mt-3" src="img/bower-overrides.png" alt=""><div class="bs-callout bs-callout-info">Можно использовать <a href="http://linuxdoc.ru/glob.html">glob</a> шаблоны</div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <h5>bower-concat</h5>
+                <div class="row justify-content-end">
+                  <div class="col-11">
+                    <div class="card mb-1">
+                      <div class="card-header" role="tab" id="section-settings-h-3-0">
+                        <div class="mb-0"><a data-toggle="collapse" href="#section-settings-3-0" aria-expanded="false " aria-controls="section-settings-3-0">Объект</a></div>
+                      </div>
+                      <div class="collapse" id="section-settings-3-0" role="tabpanel" aria-labelledby="section-settings-h-3-0" data-parent="#section-settings-accordion">
+                        <div class="card-body">Путь к папке с конечным результатом</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h2 class="mt-3" id="section-rules-styles">Правила написания стилей</h2>
+              <ul>
+                <li><b>Селекторы</b>
+                  <ol>
+                    <li>
+                      <p>Все элементы деляться на <b>блок-элемент</b> как и в БЭМ</p><img class="img-thumbnail rounded d-block mt-3 mb-3" src="img/styles-block-element.png" alt="">
+                    </li>
+                    <li>
+                      <p>Модификаторы блока задаються в контексте блока следующим образом</p><img class="img-thumbnail rounded d-block mt-3 mb-3" src="img/styles-modificator-block.png" alt="">
+                    </li>
+                    <li>
+                      <p>Классы состояния можно задавать простыми классами но не как в БЭМ, обязательно в контексте элемента или самого блока</p><img class="img-thumbnail rounded d-block mt-3 mb-3" src="img/styles-state-classes.png" alt="">
+                    </li>
+                    <li>
+                      <p>Крайние контентные теги h1-h6, p, a, img и др. можно прописывать в формате вложенных селекторов, если один тег имеет несколько разновидностей можно использовать простые классы. Пример (классы "text" и "description" для тегов "p"):</p><img class="img-thumbnail rounded d-block mt-3 mb-3" src="img/styles-classes-content-tags.png" alt="">
+                    </li>
+                    <li>
+                      <p>Не рекомендуеться использовать вложенно вложенные конструкции классов в sass, потому что код становиться тяжело воспринимаемым запутанным и при использовании классов состояний придёться писать полностью имя классов без использования спецсимвола "&":</p><img class="img-thumbnail rounded d-block mt-3 mb-3" src="img/styles-nested-construction-sass.png" alt=""><img class="img-thumbnail rounded d-block mt-3 mb-3" src="img/styles-2-level-construction-sass.png" alt="">
+                    </li>
+                  </ol>
+                </li>
+                <li><b>Свойства</b>
+                  <ul>
+                    <li>Вначале display, float, position</li>
+                    <li>На втором месте margin, padding, width, height, top, left, right, bottom</li>
+                    <li>Остальное на своё усмотрение</li>
+                  </ul>
+                </li>
+                <li><b>Медиазапросы</b>
+                  <p>Обязательно пишем в каждом селекторе:</p><img class="img-thumbnail rounded d-block mt-3 mb-3" src="img/styles-media.png" alt="">
+                </li>
+              </ul>
+              <div class="bs-callout bs-callout-warning">Стили пишутся без вендорных префиксов, их проставлением при сборке css занимается autoprefixer</div>
+              <h2 id="section-adaptive-pixel-perfect">AdaptivePixelPerfect</h2>
+              <p>Для начала работы вы должны залить скриншоты дизайна в папку <kbd>design</kbd> перезапустить gulp если он запущен и перейти по адресу: <a href="http://localhost:3010/?a-pp=1">http://localhost:3010/?a-pp=1</a>
+              </p>
+              <ul>
+                <li>зажать левую кнопку мыши + 1 - 9, 0 (переключение между разрешениями)</li>
+                <li>зажать левую кнопку мыши + W, A, S, D (навигация по вёрстке если её разрешение выше экрана браузера)</li>
+                <li>зажать левую кнопку мыши + Z, X, C (вёрстка, вёрстка поверх дизайна, картинка дизайна)</li>
+                <li>Ctrl + R + двигаем мышь (ручное изменение размеров окна с вёрсткой)</li>
+              </ul>
+              <p>Кратко о панели:</p><img class="img-thumbnail rounded d-block mt-3 mb-3" src="img/adaptive-pixel-perfect-panel.png" alt="">
+              <ul>
+                <li>Слева
+                  <ol>
+                    <li>Текущее эмулируемое разрешение</li>
+                    <li>Ваши добавленние варианты разрешений</li>
+                    <li>Здвинуть панель вниз</li>
+                  </ol>
+                </li>
+                <li>Справа
+                  <ol>
+                    <li>Страницы</li>
+                    <li>Разрешения и картинки дизайна</li>
+                    <li>Управление наложением вёрстки на дизайн
+                      <ol>
+                        <li>Вёрстка</li>
+                        <li>Вёрстка поверх дизайна</li>
+                        <li>Картинка дизайна</li>
+                      </ol>
+                    </li>
+                    <li>Настройки</li>
+                  </ol>
+                </li>
+              </ul>
+              <h2 class="mt-3" id="section-bower">bower</h2><a href="https://www.youtube.com/watch?v=jl3-rYqnvqU">Уроки по основам бовера</a>
+              <h5 class="mt-3" id="section-bower-install-plugin">Установка плагина</h5>
+              <p>Допустим мы решили установить CSS фреймворк "foundation":</p>
+              <ul>
+                <li>Загрузка плагина
+                  <ol>
+                    <li>Устанавливаем bower, если он не установлен выполнив в консоле команду:"npm i -g bower"</li>
+                    <li>Заходим на сайт бовера <a href="https://bower.io/">https://bower.io/</a> переходим на страницу поиска<img class="img-thumbnail rounded d-block mt-3 mb-3" src="img/bower-go-search-page.png" alt="">
+                    </li>
+                    <li>Пишем в поиск "foundation" и смотрим:<img class="img-thumbnail rounded d-block mt-3 mb-3" src="img/bower-search-foundation.png" alt="">обращаем внимание на количество лайков - иногда название того что нам надо может отличаться...</li>
+                    <li>Определяемся с выбором и нет не выбираем, а копируем название</li>
+                    <li>Открываем консоль и пишем: "bower i -D имя_плагина", в данном случае имя_плагина это "foundation-sites" нажимаем Enter</li>
+                  </ol>
+                </li>
+                <li>Перенос нужных файлов в конечную вёрстку и объединение плагинов
+                  <ol>
+                    <li>Запускаем gulp чтобы он перекачал необходимые нам файлы из дистрибутива который лежит в <kbd>bower_components</kbd> в папку для плагинов в конечной вёрстке <kbd>build/vendor</kbd> названия папок можно менять через опции "dest" и "bowerDest"
+                      <div class="bs-callout bs-callout-info">Все эти извороты для того чтобы тупые заказчики неудивлялись тому что в вёрстке которую они получили в папке с плагинами лежит несколько тысяч файлов... Вообщето по профессиональному иммено так и должно быть мы должны сохранять в вёрстке весь дистрибутив хоть там и тысячи файлов они никак невлияют на загрузку страниц, немного весят и могут нам в будущем понадобиться</div>
+                    </li>
+                    <li>Изучаем папку с перекачанными файлами:<img class="img-thumbnail rounded d-block mt-3 mb-3" src="img/bower-foundation-bad-files.png" alt="">
+                      <p>
+                        видим какойто scss да и файл скрипта несжатый. Именно так в основном и происходит потому что такие правила оформления bower плагинов.
+                        Для решения данной проблемы существует файл настроек <kbd>config/bower-overrides.js</kbd> Лезим в папку <kbd>bower_components/foundation-sites</kbd> ищем главный css файл и сжатый js также можно поизучать файл bower.json бо может для плагина нужны ещё какие нибудь дополнительные файлы, например для локализации также поскольку мы переносим файлы незабываем перенести шрифты и картинки так как пути к ним в стилях становяться неактуальными.
+                      </p>
+                      <p>Прописываем нужные пути в настройки:</p><img class="img-thumbnail rounded d-block mt-3 mb-3" src="img/bower-overides.png" alt="">
+                    </li>
+                    <li>
+                      <p>Если нужно обьединить несколько плагинов в один css и js файл можете использовать файл настроек <kbd>config/bower-concat.js</kbd> 
+                      </p><img class="img-thumbnail rounded d-block mt-3 mb-3" src="img/bower-concat.png" alt="">
+                      <p>Имя свойства "plugins", это имя обьединнённого плагина, его будете использовать при подключении плагинов на странице, а также оно используеться в имени общего генерируемого css и js файла, в нашем случае это будут "plugins.css" и "plugins.js".</p>
+                      <p>Объединённые файлы помещаються в корень папки <kbd>build/vendor</kbd> и наш зборщик проекта попытаеться поправить пути в стиляк к файлам картинок и шрифтов (алгоритм пока ещё нормально нетестировался).
+                      </p>
+                      <p>Внутрь свойства в ставляете массив и в нём в виде строк перечисляете названия плагинов которые нужно объединить</p>
+                      <p>Незнабываем что плагины могут друг от друга зависеть поэтому думайте что с чем объединять и как потом это выводить. Я рекомендую если вам сильно неважна оптимизация когда мы подключаем только нужные плагины на каждой странице, просто взять и объединить все фреймворки, библиотеки и другие плагины от которых зависят большинство плагинов в один с названием lib, а всё остальное в plugins.</p>
+                    </li>
+                  </ol>
+                </li>
+                <li>Подключение плагина
+                  <ol>
+                    <li>На каких страницах и какие плагины выводить определяем в файлах</li> <kbd>src/pug/includes/styles.pug</kbd> и <kbd>src/pug/includes/scripts.pug</kbd> Для вывода стилей используеться миксин <b>pasteStyles</b> а для скриптов <b>pasteScripts</b>
+                    <div class="bs-callout bs-callout-info">Миксины можно использовать несколько раз в разных местах. При этом незабывайте о зависимостях плагинов!</div>В миксин передаёться массив, внутри массива ещё массивы они идут парами нечётные определяют на каких страницах подключать плагины а чётные какие плагины. В массивы можно передавать любое количество значений, в массив который определяет на каких страницах подключать плагины может принимать не только строки с названиями страниц но и регулярные выражения. Пример:<img class="img-thumbnail rounded d-block mt-3 mb-3" src="img/bower-paste-styles.png" alt="">
+                    <p>В данном примере мы подключаем на всех страницах "reset-css", на страницах названия которых начинаються с "case-" и "auth-" плагины "malihu-custom-scrollbar-plugin" и "fancybox", а на странице "registration" плагин "jquery-validation"</p>
+                  </ol>
+                </li>
+              </ul>
+              <h2 class="mt-3" id="section-compress-img">Сжатие картинок и спрайты</h2>
+              <h5 class="mt-3" id="section-compress-img-compress">Сжатие</h5>
+              <p>Доступно 5 степеней сжатия картинок:</p>
+              <ol>
+                <li>"perfect" - идеальное
+                  <button class="btn btn-outline-info btn-sm popover-dismiss" type="button" data-toggle="popover" data-trigger="focus" title="Описание" data-content="100% по фотошопу. Нужен для особых ценителей качества или для какихто пока неведомых целей. &quot;perfect&quot; весит в 2-3 раза больше чем &quot;good&quot;, на глаз разница незаметна">?</button>
+                </li>
+                <li>"good" - хорошее
+                  <button class="btn btn-outline-info btn-sm popover-dismiss" type="button" data-toggle="popover" data-trigger="focus" title="Описание" data-content="80% по фотошопу. Нормальное качество с упором на качество. Весит в раза 2 больше чем &quot;simple&quot;">?</button>
+                </li>
+                <li>"normal" - нормальное
+                  <button class="btn btn-outline-info btn-sm popover-dismiss" type="button" data-toggle="popover" data-trigger="focus" title="Описание" data-content="60% по фотошопу. Нормальное качество с упором на меньший обьём. Весит в раза 2 меньше чем &quot;good&quot;">?</button>
+                </li>
+                <li>"simple" - простое
+                  <button class="btn btn-outline-info btn-sm popover-dismiss" type="button" data-toggle="popover" data-trigger="focus" title="Описание" data-content="40% по фотошопу. Нормальное качество с упором на меньший обьём. Весит в раза 2 меньше чем &quot;good&quot;">?</button>
+                </li>
+                <li>"low" - пониженное
+                  <button class="btn btn-outline-info btn-sm popover-dismiss" type="button" data-toggle="popover" data-trigger="focus" title="Описание" data-content="20% по фотошопу - Годиться когда качество сильно неважно и заказчик слишком настойчиво требует увеличить скорость загрузки сайта или для крупных под ретину картинок (но это уже будет немного халтура по отношению к пользователям с 4к мониторами - но оно всеравно будет лучше чем например FullHD с качеством &quot;simple&quot;). Весит в раза 2 меньше чем &quot;simple&quot;">?</button>
+                </li>
+              </ol>
+              <button class="btn btn-lg btn-outline-info mb-3" type="button" data-toggle="modal" data-target="#modal-img-quality"><i class="fa fa-eye"> Сравнить</i></button>
+              <p>Рекомендуеться применять только "good" | "normal" | "simple" бо остальное несовсем здраво!</p>
+              <div class="bs-callout bs-callout-warning">"perfect" являеться идеальным только для png формата, jpeg и webp жмуться всегда с потерями... В настройках webp можно включить режим без потерь как в png но я решил этого неделать бо для веба качество ненастолько критично - разницы между без потерь и 100% с потерями незаметит даже ювелир</div>
+              <div class="bs-callout bs-callout-info">Картинки жмуться с особыми настройками чтоб при загрузке в браузерах в начале показывался вариант с ухудшенным качеством и постепенно по мере загрузки картинки это качество улучшалось. Подробнее в <a href="https://en.wikipedia.org/wiki/Interlacing_(bitmaps)">этой статье</a>. Такие настройки незначительно увеличивают размер изображений (примерно на 5%) но они того стоят...
+              </div>
+              <!--div.bs-callout.bs-callout-info Используемый плагин меньше урезает элементов при том же размере чем фотошоп т.е. более качественно жмёт, а так же не портит цвета как tinypng-->
+              <p>По умолчанию качество сжатия определяет параметр "<b>imgCompressPolicy</b>". Без определения данного параметра сборка незапуститься вы должны обсудить с заказчиком что для него важнее качество или меньший обьём и установить значение "<b>good</b>" или "<b>simple</b>" соответственно</p>
+              <div class="bs-callout bs-callout-info">Если вы во время вёрстки хотите поднять или опустить качество для некоторых изображений то поместите эти изображения в <b>папку с названием нужного качества</b> например: "good" или "simple".</div>
+              <div class="bs-callout bs-callout-warning">В стилях ничего переписывать ненужно картинки переносяться из папки с именем качества в родительскую папку на уровень вверх</div>
+              <h5 class="mb-3" id="section-compress-img-folders">Папки</h5>
+              <div class="card" style="width: 20rem;">
+                <div class="card-body">
+                  <pre><code>src
++---img
+|   +---good
+|   +---simple
+|   +---icons
+|   +---low
+|   \---pics
+|
++---pug
+|   \---mixins
+|           svg-icon.pug
+|
+\---sass
+    |   main.sass
+    |
+    \---mixins
+            sprite.sass
+
+tmp
+\---sass
+        _png-sprite.sass
+        _svg-sprite.sass</code></pre>
+                </div>
+              </div>
+              <h5 class="mt-3" id="section-compress-img-type">Типы картинок</h5>
+              <dl class="row">
+                <dt class="col-sm-4">Картинки оформления</dt>
+                <dd class="col-sm-8">Картинки которые отвечают за оформление (в основном их прописывают через стили). Должны лежать в корне папки <kbd>img</kbd> и других папках кроме зарезервированых. Их качество определяет параметр "imgCompressPolicy".</dd>
+                <dt class="col-sm-4">Контентные картинки</dt>
+                <dd class="col-sm-8">Картинки которые являються частью контента (в основном их прописывают через тег img в html). Должны лежать в папке <kbd>img/pics</kbd>. Их качество определяет параметр "imgCompressPics". По умолчанию жмуться с качеством "simple" так как неочень важны и могуть быть заменены заказчиком</dd>
+                <dt class="col-sm-4">Картинки для спрайта</dt>
+                <dd class="col-sm-8">Мелкие картинки для оформления (всякие загугуленки вокруг блоков например) и иконки. Должны лежать в папке <kbd>img/icons</kbd>. Всегда жмуться с качеством "good" так как дефекты на значках заметны а жать в "perfect" нездраво!!!</dd>
+              </dl>
+              <h5 id="section-compress-img-sprite">Спрайты</h5>
+              <p><kbd>tmp/sass/_png-sprite.sass</kbd> и <kbd>tmp/sass/_svg-sprite.sass</kbd> в этих файлах храняться все данные о спрайтах: адрес картинки спрайта, размеры и координаты картинок из которых зделан спрайт (можете сами поизучать данные файлы)</p>
+              <p><kbd>src/sass/mixins/sprite.sass</kbd> тут находяться миксины для вывода данных о спрайте
+                <ul>
+                  <li><b>@mixin sprite($sprite)</b> - выводит свойства одной png иконки</li>
+                  <li><b>@mixin retina-sprite($retina-group)</b> - тоже самое только для ретины или 4к</li>
+                  <li><b>@mixin sprites($sprites)</b> - выводит стили для всех png иконок.</li>
+                  <li><b>@mixin retina-sprites($retina-groups)</b> - тоже самое только для ретины или 4к</li>
+                  <li><b>@mixin svg-sprite($sprite)</b> - выводит свойства одной svg иконки</li>
+                  <li><b>@mixin svg-sprites($sprites)</b> - выводит стили для всех svg иконок.</li>
+                </ul>
+              </p>
+              <p><b>PNG иконки</b> вставляються через любой тег и класс с именем иконки или через миксин который выводит свойства иконки - надо просто вставить в стиль миксин и передать в него переменную с именем иконки.</p>
+              <p>Чтобы иконки были под ретину необходимо указать параметр "<b>spritePngPostfix2x</b>", например "@2x" и ложить в папку с обычными иконками такие точно иконки но с удвоенным разрешение и именем:"имя_обычной_иконки@2x.png"</p>
+              <p><b>SVG иконки</b> вставляються через миксин <b>mixin icon(name)</b> который находиться в <kbd>src/pug/mixins/svg-icon.pug</kbd> ему передаеться имя иконки.</p>
+              <p>SVG иконки могут маштабироваться через свойство font-size в стилях а также если изменять базовый размер шрифта в html, поскольку в свойствах иконки используються rem и em</p>
+              <p>SVG иконкам можно задавать цвет через обычное свойство color в стилях, но перед этим надо их обесцветить, для этого надо задать параметр "<b>spriteSvgClearColor</b>" в true</p>
+              <div class="bs-callout bs-callout-info">Имя иконки формируеться так:"<b>icon-имя_файла_иконки</b>"</div>
+              <div class="bs-callout bs-callout-warning">Миксины под ретину или 4к содержат информацию и о стандартных картинках поэтому ненадо использовать медиазапросы с разными миксинами</div>
+              <h2 id="section-fast-links">Всякие интересные ссылки</h2>
+              <ul>
+                <li><a href="http://html2jade.org/">html код в pug</a></li>
+                <li><a href="https://svgextension.codeplex.com/releases/view/118790">Отображение SVG иконок Windows Explorer</a></li>
+                <li><a href="https://oxozle.com/2015/03/24/kak-sozdat-fajl-s-tochkoj-v-nachale-v-windows-explorer">Как создать файл с точкой в начале в Windows Explorer</a></li>
+              </ul>
+            </div>
+            <div class="modal fade bd-example-modal-lg" id="modal-img-quality" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Сравнение</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row mb-3 quality-compare">
+                      <div class="col-6 quality-compare-left">
+                                                <div class="dropdown">
+                                                  <button class="btn btn-secondary dropdown-toggle" id="compare-left" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Левая картинка</button>
+                                                  <div class="dropdown-menu" aria-labelledby="compare-left">
+                                                    <h6 class="dropdown-header">JPG</h6>
+                                                    <div class="group-quality" data-heading="JPG"><a class="dropdown-item" href="img/quality-perfect.jpg">perfect - 303KB</a><a class="dropdown-item" href="img/quality-good.jpg">good - 154KB</a><a class="dropdown-item" href="img/quality-normal.jpg">normal - 116KB</a><a class="dropdown-item" href="img/quality-simple.jpg">simple - 67KB</a><a class="dropdown-item" href="img/quality-low.jpg">low - 50KB</a></div>
+                                                    <div class="dropdown-divider"></div>
+                                                    <h6 class="dropdown-header">PNG</h6>
+                                                    <div class="group-quality" data-heading="PNG"><a class="dropdown-item" href="img/quality-perfect-png.png">perfect - 620KB</a><a class="dropdown-item" href="img/quality-good-png.png">good - 620KB</a><a class="dropdown-item" href="img/quality-normal-png.png">normal - 620KB</a><a class="dropdown-item" href="img/quality-simple-png.png">simple - 620KB</a><a class="dropdown-item" href="img/quality-low-png.png">low - 160KB</a></div>
+                                                    <div class="dropdown-divider"></div>
+                                                    <h6 class="dropdown-header">WEBP</h6>
+                                                    <div class="group-quality" data-heading="WEBP"><a class="dropdown-item" href="img/webp/quality-perfect-webp.png">perfect - 195KB</a><a class="dropdown-item" href="img/webp/quality-good-webp.png">good - 138KB</a><a class="dropdown-item" href="img/webp/quality-normal-webp.png">normal - 101KB</a><a class="dropdown-item" href="img/webp/quality-simple-webp.png">simple - 56KB</a><a class="dropdown-item" href="img/webp/quality-low-webp.png">low - 47KB</a></div>
+                                                    <div class="dropdown-divider"></div>
+                                                    <h6 class="dropdown-header">Photoshop JPG</h6>
+                                                    <div class="group-quality" data-heading="Photoshop JPG"><a class="dropdown-item" href="img/photoshop/quality-100.jpg">100% - 404KB</a><a class="dropdown-item" href="img/photoshop/quality-80.jpg">80% - 211KB</a><a class="dropdown-item" href="img/photoshop/quality-60.jpg">60% - 129KB</a><a class="dropdown-item" href="img/photoshop/quality-40.jpg">40% - 74KB</a><a class="dropdown-item" href="img/photoshop/quality-20.jpg">20% - 53KB</a></div>
+                                                    <div class="dropdown-divider"></div>
+                                                    <h6 class="dropdown-header">TinyPng</h6>
+                                                    <div class="group-quality" data-heading="TinyPng"><a class="dropdown-item" href="img/quality-tiny-png.png">PNG - 151KB</a></div>
+                                                  </div>
+                                                </div>
+                      </div>
+                      <div class="col-6 quality-compare-right">
+                                                <div class="dropdown d-flex flex-row-reverse">
+                                                  <button class="btn btn-secondary dropdown-toggle" id="compare-right" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Правая картинка</button>
+                                                  <div class="dropdown-menu" aria-labelledby="compare-right">
+                                                    <h6 class="dropdown-header">JPG</h6>
+                                                    <div class="group-quality" data-heading="JPG"><a class="dropdown-item" href="img/quality-perfect.jpg">perfect - 303KB</a><a class="dropdown-item" href="img/quality-good.jpg">good - 154KB</a><a class="dropdown-item" href="img/quality-normal.jpg">normal - 116KB</a><a class="dropdown-item" href="img/quality-simple.jpg">simple - 67KB</a><a class="dropdown-item" href="img/quality-low.jpg">low - 50KB</a></div>
+                                                    <div class="dropdown-divider"></div>
+                                                    <h6 class="dropdown-header">PNG</h6>
+                                                    <div class="group-quality" data-heading="PNG"><a class="dropdown-item" href="img/quality-perfect-png.png">perfect - 620KB</a><a class="dropdown-item" href="img/quality-good-png.png">good - 620KB</a><a class="dropdown-item" href="img/quality-normal-png.png">normal - 620KB</a><a class="dropdown-item" href="img/quality-simple-png.png">simple - 620KB</a><a class="dropdown-item" href="img/quality-low-png.png">low - 160KB</a></div>
+                                                    <div class="dropdown-divider"></div>
+                                                    <h6 class="dropdown-header">WEBP</h6>
+                                                    <div class="group-quality" data-heading="WEBP"><a class="dropdown-item" href="img/webp/quality-perfect-webp.png">perfect - 195KB</a><a class="dropdown-item" href="img/webp/quality-good-webp.png">good - 138KB</a><a class="dropdown-item" href="img/webp/quality-normal-webp.png">normal - 101KB</a><a class="dropdown-item" href="img/webp/quality-simple-webp.png">simple - 56KB</a><a class="dropdown-item" href="img/webp/quality-low-webp.png">low - 47KB</a></div>
+                                                    <div class="dropdown-divider"></div>
+                                                    <h6 class="dropdown-header">Photoshop JPG</h6>
+                                                    <div class="group-quality" data-heading="Photoshop JPG"><a class="dropdown-item" href="img/photoshop/quality-100.jpg">100% - 404KB</a><a class="dropdown-item" href="img/photoshop/quality-80.jpg">80% - 211KB</a><a class="dropdown-item" href="img/photoshop/quality-60.jpg">60% - 129KB</a><a class="dropdown-item" href="img/photoshop/quality-40.jpg">40% - 74KB</a><a class="dropdown-item" href="img/photoshop/quality-20.jpg">20% - 53KB</a></div>
+                                                    <div class="dropdown-divider"></div>
+                                                    <h6 class="dropdown-header">TinyPng</h6>
+                                                    <div class="group-quality" data-heading="TinyPng"><a class="dropdown-item" href="img/quality-tiny-png.png">PNG - 151KB</a></div>
+                                                  </div>
+                                                </div>
+                      </div>
+                    </div>
+                    <div class="row mb-3">
+                      <div class="col-6">
+                        <h6 class="left-img-compare-text">JPG - perfect - 303KB</h6>
+                      </div>
+                      <div class="col-6">
+                        <h6 class="right-img-compare-text text-right">JPG - low - 50KB</h6>
+                      </div>
+                    </div>
+                    <figure class="cd-image-container"><img class="quality-compare-img-right" src="img/quality-low.jpg" alt="Original Image"><span class="cd-image-label" data-type="original">Оригинальное</span>
+                      <div class="cd-resize-img"><img class="quality-compare-img-left" src="img/quality-perfect.jpg" alt="Modified Image"><span class="cd-image-label" data-type="modified">Модифицированное</span></div><span class="cd-handle"></span>
+                    </figure>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script src="js/jquery-ui-1.12.1/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="js/popper.min.js" type="text/javascript"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="js/main.js" type="text/javascript"></script>
+  </body>
+</html>

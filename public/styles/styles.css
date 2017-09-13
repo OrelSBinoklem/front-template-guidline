@@ -1,0 +1,208 @@
+.bs-callout {
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid #eee;
+  border-left-width: 5px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px; }
+  .bs-callout h4 {
+    margin-top: 0;
+    margin-bottom: 5px; }
+  .bs-callout p:last-child {
+    margin-bottom: 0; }
+  .bs-callout code {
+    -webkit-border-radius: 3px;
+    border-radius: 3px; }
+  .bs-callout + .bs-callout {
+    margin-top: -5px; }
+
+.bs-callout-default {
+  border-left-color: #777; }
+  .bs-callout-default h4 {
+    color: #777; }
+
+.bs-callout-primary {
+  border-left-color: #428bca; }
+  .bs-callout-primary h4 {
+    color: #428bca; }
+
+.bs-callout-success {
+  border-left-color: #5cb85c; }
+  .bs-callout-success h4 {
+    color: #5cb85c; }
+
+.bs-callout-danger {
+  border-left-color: #d9534f; }
+  .bs-callout-danger h4 {
+    color: #d9534f; }
+
+.bs-callout-warning {
+  border-left-color: #f0ad4e; }
+  .bs-callout-warning h4 {
+    color: #f0ad4e; }
+
+.bs-callout-info {
+  border-left-color: #5bc0de; }
+  .bs-callout-info h4 {
+    color: #5bc0de; }
+
+.icon {
+  display: inline-block; }
+
+.cd-image-container {
+  position: relative;
+  max-width: 768px;
+  margin: 0em auto;
+  background-color: #f3f4ef;
+  border: 6px solid #dedede; }
+  .cd-image-container img {
+    display: block; }
+
+.cd-image-label {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: #ffffff;
+  padding: 1em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  opacity: 0;
+  -webkit-transform: translateY(20px);
+  -ms-transform: translateY(20px);
+  transform: translateY(20px);
+  -webkit-transition: -webkit-transform 0.3s 0.7s, opacity 0.3s 0.7s;
+  -webkit-transition: opacity 0.3s 0.7s, -webkit-transform 0.3s 0.7s;
+  transition: opacity 0.3s 0.7s, -webkit-transform 0.3s 0.7s;
+  -o-transition: transform 0.3s 0.7s, opacity 0.3s 0.7s;
+  transition: transform 0.3s 0.7s, opacity 0.3s 0.7s;
+  transition: transform 0.3s 0.7s, opacity 0.3s 0.7s, -webkit-transform 0.3s 0.7s; }
+  .cd-image-label.is-hidden {
+    visibility: hidden; }
+
+.is-visible .cd-image-label {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0); }
+
+.cd-resize-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  overflow: hidden;
+  /* Force Hardware Acceleration in WebKit */
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden; }
+  .cd-resize-img img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    height: 100%;
+    width: auto;
+    max-width: none; }
+  .cd-resize-img .cd-image-label {
+    right: auto;
+    left: 0; }
+
+.is-visible .cd-resize-img {
+  width: 50%;
+  /* bounce in animation of the modified image */
+  -webkit-animation: cd-bounce-in 0.7s;
+  animation: cd-bounce-in 0.7s; }
+
+@-webkit-keyframes cd-bounce-in {
+  0% {
+    width: 0; }
+  60% {
+    width: 55%; }
+  100% {
+    width: 50%; } }
+
+@keyframes cd-bounce-in {
+  0% {
+    width: 0; }
+  60% {
+    width: 55%; }
+  100% {
+    width: 50%; } }
+
+.cd-handle {
+  position: absolute;
+  height: 44px;
+  width: 44px;
+  /* center the element */
+  left: 50%;
+  top: 50%;
+  margin-left: -22px;
+  margin-top: -22px;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  background: #dc717d url("../img/cd-arrows.svg") no-repeat center center;
+  cursor: move;
+  -webkit-box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  opacity: 0;
+  -webkit-transform: translate3d(0, 0, 0) scale(0);
+  -ms-transform: translate3d(0, 0, 0) scale(0);
+  transform: translate3d(0, 0, 0) scale(0); }
+  .cd-handle.draggable {
+    /* change background color when element is active */
+    background-color: #445b7c; }
+
+.is-visible .cd-handle {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0) scale(1);
+  -ms-transform: translate3d(0, 0, 0) scale(1);
+  transform: translate3d(0, 0, 0) scale(1);
+  -webkit-transition: -webkit-transform 0.3s 0.7s, opacity 0s 0.7s;
+  -webkit-transition: opacity 0s 0.7s, -webkit-transform 0.3s 0.7s;
+  transition: opacity 0s 0.7s, -webkit-transform 0.3s 0.7s;
+  -o-transition: transform 0.3s 0.7s, opacity 0s 0.7s;
+  transition: transform 0.3s 0.7s, opacity 0s 0.7s;
+  transition: transform 0.3s 0.7s, opacity 0s 0.7s, -webkit-transform 0.3s 0.7s; }
+
+/*===================================================== Left Menu And Content ====================================================*/
+/*=================================================== end Left Menu And Content ==================================================*/
+/**/
+/*===================================================== Left Menu ====================================================*/
+.content-scrollspy-nav {
+  margin-top: 30px; }
+  @media all and (min-width: 768px) {
+    .content-scrollspy-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0; } }
+
+.h-0 {
+  height: 0; }
+
+.content {
+  margin-top: 30px;
+  margin-bottom: 50px; }
+
+/*=================================================== end Left Menu ==================================================*/
+/**/
+/*===================================================== Content ====================================================*/
+.quality-compare .dropdown-menu {
+  max-height: 95vh;
+  overflow: auto; }
+
+.quality-compare .dropdown-item {
+  font-size: 14px;
+  padding-top: .125rem;
+  padding-bottom: .125rem; }
+
+/*=================================================== end Content ==================================================*/
+/**/
+/*==================================================== 1300 ===================================================*/
+/*================================================== end 1300 =================================================*/
+
+/*# sourceMappingURL=styles.css.map */

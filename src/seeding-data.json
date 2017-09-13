@@ -1,0 +1,46 @@
+{
+  "navleft": [
+    {"text": "Описание", "id": "section-description"},
+    {"text": "Простой старт", "id": "section-easy-start"},
+    {"text": "Настройки", "id": "section-settings"},
+    {"text": "Структура файлов", "id": "section-file-structure"},
+    {"text": "Правила написания стилей", "id": "section-rules-styles"},
+    {"text": "AdaptivePixelPerfect", "id": "section-adaptive-pixel-perfect"},
+    {"text": "bower", "id": "section-bower", "child": [
+      {"text": "Установка плагина", "id": "section-bower-install-plugin"}
+    ]},
+    {"text": "Сжатие картинок и спрайты", "id": "section-compress-img", "child": [
+      {"text": "Сжатие", "id": "section-compress-img-compress"},
+      {"text": "Папки", "id": "section-compress-img-folders"},
+      {"text": "Типы картинок", "id": "section-compress-img-type"},
+      {"text": "Спрайты", "id": "section-compress-img-sprite"}
+    ]},
+    {"text": "Всякие интересные ссылки", "id": "section-fast-links"}
+  ],
+
+  "configDescriptions": [
+    {"heading": "packer", "options": [
+      {"h": "dest", "desc": "Путь к папке с конечным результатом"},
+      {"h": "resetCss", "desc": "Просто сброс стилей \"reset.css\""},
+      {"h": "imgCompressPolicy", "desc": "Степень сжатия картинок по умолчанию подробнее в разделе <a href=\"#section-compress-img\">\"Сжатие картинок и спрайты\"</a>"},
+      {"h": "webp", "desc": "Все картинки дополнительно жмуться в формат webp и вставляються в ту же папку с такими же именами. Надо в .htaccess файл вставить код с этой <a href=\"https://github.com/vincentorback/WebP-images-with-htaccess\">статьи</a> для потдержки webp"},
+      {"h": "spritePngPostfix2x", "desc": "Конец имени файлов с двойным разрешением для создания спрайта для ретины или 4k. \"-2x\" с такой строкой возникают баги!!! лучше использовать \"@2x\""},
+      {"h": "spriteSvgClearColor", "desc": "Удаление атрибутов цвета чтобы можно было цвет svg иконки задавать через свойство color в стилях"},
+      {"h": "pugOrganizationCodePolicy", "desc": "Изначальная структура pug файлов. Раньше PHP программисты всегда использовали include с помощью которой подключали часто используемые куски кода. например \"header\" и \"footer\" потом заметили что header и footer всегда подключаються в одних и тег же местах на страницах и начали использовать extend (наследование). extend - работает следующим образом мы создаём файл, описываем внутри него \"header\" и \"footer\" между ними вставляем специальный переопределяемый блок и от этого файла наследуем все страницы и внутри страниц описываем только меняющийся контент которым переопределяем переопределяемый блок наследуемого файла. Если для заказчика неимеет значение в каком стиле вам писать то пишите в стиле \"extend\". Если для заказчика стиль может быть важен и вы незнаете какой то лучше \"include\" поскольку его проще переделать в \"extend\". Wordpress использует стиль \"include\". Laravel и Yii2 \"extend\""},
+      {"h": "autoprefixer", "desc": "Вендорные префиксы, чтобы больше браузеров использовали современные фишки пускай даже иногда с небольшими багами. Например -webkit-transition:"},
+      {"h": "autoprefixerOptions", "desc": "<a href=\"https://github.com/ai/browserslist\">документация</a>"}
+    ]},
+    {"heading": "packer <small class=\"text-muted\">второстепенные опции</small>", "options": [
+      {"h": "src", "desc": "Путь к папке с исходниками"},
+      {"h": "tmp", "desc": "Путь к папке с временными файлами"},
+      {"h": "bowerDest", "desc": "Путь к папке с плагинами из bower, относительно папки \"dest\""},
+      {"h": "clean", "desc": "Уничтожает папки \"tmp\", \"dest\" перед запуском основных задач"}
+    ]},
+    {"heading": "bower-overrides", "options": [
+      {"h": "Объект", "desc": "Здесь мы определяем какие файлы из модулей нам нужны если предложенные по умолчанию нас неустраивают. Создаём свойство имеющее имя модуля потом в это свойство передаём объект с свойством main которому передаём строку с путём к файлу или массив строк к файлам: <img class=\"img-thumbnail rounded d-block mt-3\" src=\"img/bower-overrides.png\" alt=\"\"><div class=\"bs-callout bs-callout-info\">Можно использовать <a href=\"http://linuxdoc.ru/glob.html\">glob</a> шаблоны</div>"}
+    ]},
+    {"heading": "bower-concat", "options": [
+      {"h": "Объект", "desc": "Путь к папке с конечным результатом"}
+    ]}
+  ]
+}
