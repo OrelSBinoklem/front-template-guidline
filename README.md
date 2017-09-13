@@ -1,11 +1,5 @@
-Tuned gulp for frontend
+Guidline for front-template repository
 
-## Install
-
-```bash
-$ npm i easy-gulp-by-orel --save-dev
-```
-```
 ## Release Notes
 
 | Release | Notes |
